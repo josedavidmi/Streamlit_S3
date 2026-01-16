@@ -15,14 +15,11 @@ KEY = "streamlit/log_streamlit.log"   # por ejemplo: "streamlit/log_streamlit"
 
 @st.cache_data(ttl=5)  # evita recalcular más de lo necesario entre refreshes
 def read_csv_from_s3(bucket: str, key: str) -> pd.DataFrame:
-    # Credenciales desde st.secrets (Streamlit Cloud)
-    session = boto3.session.Session(
-        # Credenciales referenciadas por nombre, NO el valor real
+    # Credenciales referenciadas por nombre, NO el valor real
     session = boto3.session.Session(
         aws_access_key_id=st.secrets["AWS_ACCESS_KEY_ID"],
         aws_secret_access_key=st.secrets["AWS_SECRET_ACCESS_KEY"],
         aws_session_token=st.secrets.get("AWS_SESSION_TOKEN"),
-    )
     )
     s3 = session.client("s3")
     obj = s3.get_object(Bucket=bucket, Key=key)
