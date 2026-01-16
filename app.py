@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import boto3
+from streamlit_autorefresh import st_autorefresh
 from io import BytesIO
 
 st.set_page_config(page_title="Dashboard S3 en tiempo real", layout="wide")
