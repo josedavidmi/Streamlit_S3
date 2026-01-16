@@ -7,7 +7,7 @@ from io import BytesIO
 st.set_page_config(page_title="Dashboard S3 en tiempo real", layout="wide")
 
 # Refresca la app cada 5 segundos (5000 ms)
-st.autorefresh(interval=5000, key="refresh")
+st_autorefresh(interval=5000, key="refresh")
 
 BUCKET = "s3-examen-bda-2025121-iabd00"
 KEY = "streamlit/log_streamlit.log"   # por ejemplo: "streamlit/log_streamlit"
